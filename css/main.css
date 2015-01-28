@@ -33,6 +33,10 @@ h1 {
   resize: none;
 }
 
+#closeSocketRequestBtn {
+  display: none;
+}
+
 .console {
   height: 600px;
   border: 1px solid black;
