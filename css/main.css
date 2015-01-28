@@ -1,0 +1,47 @@
+
+h1 {
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin: 0 auto;
+}
+
+.site-title {
+  margin: 10px 0;
+}
+
+.container {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.input {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.url-input {
+  width: 350px;
+  height: 25px;
+}
+
+.json-input {
+  width: 300px;
+  height: 100px;
+  resize: none;
+}
+
+.console {
+  height: 600px;
+  border: 1px solid black;
+  background: black;
+  color: white;
+  padding: 10px;
+  overflow: auto;
+}
+
+.data-object {
+  color: white;
+}
