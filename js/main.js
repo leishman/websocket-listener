@@ -1,6 +1,18 @@
 ;
 var Sockie = (function(my) {
   var ws;
+
+  var examples = {
+    'coinbase': {
+      'url': 'wss://ws-feed.exchange.coinbase.com',
+      'msg': '{"type": "subscribe","product_id": "BTC-USD"}'
+    },
+    'blockchain': {
+      'url': 'wss://ws.blockchain.info/inv',
+      'msg': '{"op":"unconfirmed_sub"}'
+    }
+  }
+
   var $els = {
     socketUrl: $('#socketUrl'),
     subscribeMessage: $('#subscribeMessage'),
@@ -8,7 +20,8 @@ var Sockie = (function(my) {
     errorBox: $('.error-message'),
     subscribeButton: $('#submitSocketRequestBtn'),
     closeButton: $('#closeSocketRequestBtn'),
-    resetButton: $('#resetFormsBtn')
+    resetButton: $('#resetFormsBtn'),
+    prettifyOutput: $('#prettifyOutput')
   }
 
   ////////////
@@ -19,9 +32,7 @@ var Sockie = (function(my) {
     $els.subscribeButton.click(function() {
       initializeWebSocketConnection();
     });
-
-    $els.closeButton.click(closeConnection);
-    $els.resetButton.click(resetPage)
+    bindUserEvents();
   }
 
   ///////////
@@ -42,6 +53,14 @@ var Sockie = (function(my) {
     ws.onerror = webSocketErrorCallback;
   }
 
+  function bindUserEvents() {
+    $els.closeButton.click(closeConnection);
+    $els.resetButton.click(resetPage);
+    $('.example').click(fillForm);
+  }
+
+  // WebSocket connection callbacks
+
   function webSocketOpenCallback(event) {
     $els.subscribeButton.hide();
     $els.closeButton.show();
@@ -52,21 +71,49 @@ var Sockie = (function(my) {
   }
 
   function webSocketMessageCallback(event) {
-    printData(event.data);
+    var data = JSON.parse(event.data);
+    printData(data);
   }
 
   function webSocketErrorCallback(event) {
     alert('Connection Unsuccessful');
   }
 
+  // Data display functions
+
+  // display error under form
   function displayError(err) {
     $els.errorBox.text(err);
     setTimeout(function(){ $els.errorBox.text('') }, 3000);
   }
 
+  // Print data to console. Prettify if box is checked
   function printData(data) {
-    $els.console.append('<p class="data-object">' + data + '</p>');
+    var output;
+
+    if ($els.prettifyOutput.prop('checked')) {
+      output = 
+        '<pre class="data-object">' +
+        JSON.stringify(data, undefined, 2) +
+        '</pre>'
+    } else {
+      output = 
+        '<span class="data-object">' +
+        JSON.stringify(data) +
+        '</span>'
+    }
+    
+    $els.console.append(output);
   }
+
+  // expects to be called as event handler
+  function fillForm() {
+    var exampleName = $(this).data('example-key');
+    $els.socketUrl.val(examples[exampleName].url);
+    $els.subscribeMessage.val(examples[exampleName].msg);
+  }
+
+  // Update page state functions
 
   function closeConnection() {
     $els.closeButton.hide();
@@ -76,6 +123,7 @@ var Sockie = (function(my) {
     ws = undefined;
   }
 
+  // reset form and console
   function resetPage() {
     closeConnection();
     $els.resetButton.hide();
