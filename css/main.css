@@ -168,6 +168,7 @@ footer a {
 
   .upper-container {
     flex-direction: column-reverse;
+    -webkit-flex-direction: column-reverse;
   }
 
   .example-container {
