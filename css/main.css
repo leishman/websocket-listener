@@ -45,6 +45,7 @@ nav {
   display: flex;
   display: -webkit-flex;
   flex-direction: row;
+  -webkit-flex-direction: row;
 }
 
 .form-container, .example-container {
@@ -197,7 +198,5 @@ footer a {
 
   .console {
     height: 300px;
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
   }
 }
