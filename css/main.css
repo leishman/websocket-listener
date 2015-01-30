@@ -39,6 +39,7 @@ nav, footer {
 .upper-container {
   margin-top: 25px;
   display: flex;
+  display: -webkit-flex;
   flex-direction: row;
 }
 
@@ -123,7 +124,7 @@ nav, footer {
   border: 1px solid black;
   background: black;
   color: white;
-  padding: 10px;
+  padding: 10px 10px 0 10px;
   overflow: auto;
 }
 
