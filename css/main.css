@@ -124,7 +124,8 @@ nav {
 }
 
 .console {
-  height: 800px;
+  height: 650px;
+  height: 70vh;
   border: 1px solid black;
   background: black;
   color: white;
