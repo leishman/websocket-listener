@@ -163,6 +163,10 @@ footer a {
     min-width: 0;
   }
 
+  nav {
+    padding: 10px 0;
+  }
+
   .sub-title {
     line-height: 22px;
   }
