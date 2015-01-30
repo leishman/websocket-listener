@@ -172,16 +172,18 @@ footer a {
   }
 
   .upper-container {
-    flex-direction: column-reverse;
-    -webkit-flex-direction: column-reverse;
+    flex-direction: column;
+    -webkit-flex-direction: column;
   }
 
   .example-container {
     padding-left: 0;
+    order: 0;
   }
 
   .form-container {
     margin-top: 20px;
+    order: 1;
   }
 
   .url-input, .json-input {
