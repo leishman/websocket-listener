@@ -32,6 +32,10 @@ nav, footer {
   min-width: 800px;
 }
 
+nav {
+  padding-top: 30px;
+}
+
 .site-title {
   margin-top: 0;
 }
