@@ -12,10 +12,11 @@
         <link rel="stylesheet" href="css/main.css">
     </head>
     <body>
-        <div class="container">
-
+        <nav class="masthead">
             <h1 class="site-title">WebSocket Listener</h1>
             <h3>Easily inspect websocket data feeds without writing any code.</h3>
+        </nav>
+        <div class="container">
             <div class="upper-container">
                 <div class="form-container">
                     <label><b>WebSocket URL</b></label>
@@ -24,31 +25,33 @@
                     <textarea id="subscribeMessage" class="input json-input" type="text" placeholder='{"type": "subscribe"}'></textarea>
                     <div class="error-message"></div>
                     <br/>
-                    <input type="submit" value="Subscribe" class="btn" id="submitSocketRequestBtn"/>
-                    <input type="submit" value="Close Connection" class="btn" id="closeSocketRequestBtn"/>
-                    <input type="submit" value="Reset" class="btn" id="resetFormsBtn"/>
+                    <input type="submit" value="Subscribe" class="btn btn-pos" id="submitSocketRequestBtn"/>
+                    <input type="submit" value="Close Connection" class="btn btn-neg" id="closeSocketRequestBtn"/>
+                    <input type="submit" value="Reset" class="btn btn-neut" id="resetFormsBtn"/>
                     <br/>
                 </div>
                 <div class="example-container">
-                    <h4>Click Example to fill form</h4>
+                    <h4 class="example-title">Click Below for Examples</h4>
                     <div class="examples">
-                        <div class="example" data-example-key="coinbase">< Coinbase Exchange Api</div>
-                        <div class="example" data-example-key="blockchain">< Blockchain.info Data Feed</div>
+                        <div class="example" data-example-key="coinbase">&#12296; Coinbase Exchange API</div>
+                        <div class="example" data-example-key="blockchain">&#12296; Blockchain.info API</div>
+                        <div class="example" data-example-key="ripple">&#12296; Ripple Labs Data API</div>
                     </div>
                 </div>
             </div>
 
-            <h4>WebSocket Output:</h4>
-            <span class="checkbox-container">
-                <label>Prettify? </label>
-                <input type="checkbox" id="prettifyOutput" />
-            </span>
-            <div id="socketOutput" class="console"></div>
-
-            <footer>
-                <p>Project By <a href="http://alexleishman.com">Alexander Leishman</a></p>
-            </footer>
+            <h4><b>WebSocket Output:</b></h4>
+            <div id="socketOutput" class="console">
+                <div class="checkbox-container">
+                    <label>Prettify?</label>
+                    <input type="checkbox" id="prettifyOutput" checked="true"/>
+                </div>
+            </div>
         </div>
+        <footer>
+            <p>Project By <a href="http://alexleishman.com">Alexander Leishman</a></p>
+        </footer>
+
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.js"></script>
         <script src="js/main.js"></script>
 

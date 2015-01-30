@@ -10,8 +10,14 @@ var Sockie = (function(my) {
     'blockchain': {
       'url': 'wss://ws.blockchain.info/inv',
       'msg': '{"op":"unconfirmed_sub"}'
+    },
+    'ripple': {
+      'url': 'wss://s1.ripple.com',
+      'msg': '{"id": 1, "command": "server_info"}'
     }
   }
+
+  
 
   var $els = {
     socketUrl: $('#socketUrl'),

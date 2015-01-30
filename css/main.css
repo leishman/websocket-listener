@@ -2,11 +2,17 @@
   box-sizing: border-box;
 }
 
+body {
+  padding-top: 0;
+  background: #EDFFE7;
+  font-weight: lighter;
+}
+
 h1, h3 {
   text-align: center;
 }
 
-h3 {
+h1, h2, h3, h4, h5 {
   font-weight: lighter;
 }
 
@@ -19,7 +25,19 @@ h3 {
   width: 800px;
 }
 
+nav, footer {
+  padding: 15px;
+  background: #382F25;
+  color: white;
+  min-width: 800px;
+}
+
+.site-title {
+  margin-top: 0;
+}
+
 .upper-container {
+  margin-top: 25px;
   display: flex;
   flex-direction: row;
 }
@@ -33,10 +51,13 @@ h3 {
   padding-left: 10px;
 }
 
-.examples {
-  background: lightgray;
+.example-title {
+  margin: 0 0 10px 0;
 }
 
+.examples {
+  background: #D6CA9A;
+}
 
 .example {
   width: 100%;
@@ -48,7 +69,7 @@ h3 {
 }
 
 .example:hover {
-  background: green;
+  background: #D2E88B;
 }
 
 .input {
@@ -57,23 +78,48 @@ h3 {
   font-size: 16px;
 }
 
+.btn {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: #FFF;
+}
+
+.btn-neut {
+  background: #999;
+}
+
+.btn-pos {
+  background: #00B21E;
+}
+
+.btn-neg {
+  background: #B20025;
+}
+
 .url-input {
   width: 350px;
-  height: 25px;
+  height: 35px;
 }
 
 .json-input {
-  width: 300px;
+  width: 350px;
   height: 100px;
   resize: none;
+  border: 1px solid lightgray;
 }
 
-#closeSocketRequestBtn {
+#closeSocketRequestBtn, #resetFormsBtn {
   display: none;
 }
 
+.checkbox-container {
+  color: #FFF;
+  margin-bottom: 10px;
+}
+
 .console {
-  height: 600px;
+  height: 800px;
   border: 1px solid black;
   background: black;
   color: white;
@@ -81,6 +127,27 @@ h3 {
   overflow: auto;
 }
 
+.console::-webkit-scrollbar {
+  width: 10px;
+}
+
+.console::-webkit-scrollbar-thumb {
+  height: 50px;
+  background-color: #FFF;
+}
+
+
 .data-object {
   color: white;
 }
+
+footer {
+  margin-top: 20px;
+  height: 70px;
+  text-align: center;
+}
+
+footer a {
+  color: #FFF;
+}
+
